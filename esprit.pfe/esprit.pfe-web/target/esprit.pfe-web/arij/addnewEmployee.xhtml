@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	
+	
+	>
+	<h:form enctype="multipart/form-data">
+		<h:panelGrid columns="2">
+		
+		<h:outputText value="First name: " />
+		<h:inputText value="#{employeeManagementBean.nomEmploye}" />
+		
+			<h:outputText value="Last name: " />
+	    <h:inputText value="#{employeeManagementBean.prenomEmploye}"/>
+	    
+	    <h:outputText value="User name: " />
+	    <h:inputText value="#{employeeManagementBean.userNameEmploye}"/>
+	    
+	     <h:outputText value="Email: " />
+	    <h:inputText value="#{employeeManagementBean.emailEmploye}"/>
+	    
+	     <h:selectOneMenu  id="console" value="#{employeeManagementBean.employeRole}" style="width:125px">
+	     	<f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Internship director" itemValue="Internship director" /> 
+            <f:selectItem itemLabel="department head" itemValue="department head" />
+            <f:selectItem itemLabel="Internship Framer" itemValue="Internship Framer" />
+            <f:selectItem itemLabel="professor" itemValue="professor" />
+             <f:selectItem itemLabel="protractor" itemValue="protractor" />
+        </h:selectOneMenu>
+		<br></br>
+	
+		
+		
+		<h:commandButton  action="#{employeeManagementBean.addEmploye()}" value=" Add new Employee" 
+	 onclick="if(!confirm('are you sure you want to add this employee ?')){ return; };">
+		 
+		</h:commandButton>
+		
+		</h:panelGrid>
+			
+			</h:form>		
+	
+</ui:composition>

@@ -1,0 +1,53 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templateAdmin.xhtml"
+	>
+
+
+<ui:define name="titleHere">
+	<h3>Account Info</h3>
+	<h:form enctype="multipart/form-data">
+	 <h:panelGroup id="padding" layout="block">
+		<table cellpadding="2" cellspacing="2">
+			
+			<tr>
+				<td valign="top">Note: </td>
+				<td>
+					<h:inputTextarea cols="20" rows="5" value="#{rapportBean.remarque}"></h:inputTextarea>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">Validity</td>
+				<td>
+					<h:selectOneRadio value="#{rapportBean.valide}">
+						<f:selectItem itemLabel="Valid" itemValue="1"></f:selectItem>
+						<f:selectItem itemLabel="Non valid" itemValue="2"></f:selectItem>
+					</h:selectOneRadio>
+				</td>
+			</tr>
+			
+			<tr>
+				<td valign="top">Signature</td>
+				<td>
+					<p:signature style="width:400px;height:200px" widgetVar="sig" value="#{rapportBean.signature}" required="true" guideline="true"/>
+				</td>
+				
+			</tr>
+			<tr>
+				
+				<td>
+					<h:commandButton value="Save" action="#{rapportBean.updaterapport()}"></h:commandButton>
+				</td>
+			</tr>
+			
+		</table>
+		</h:panelGroup>
+		
+	</h:form>
+</ui:define>
+
+</ui:composition>

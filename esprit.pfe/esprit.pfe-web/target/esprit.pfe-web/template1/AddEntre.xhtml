@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml"
+>
+<ui:define name="pageCSS">
+  <h:outputStylesheet library="css" name="bootstrap.min.css" />
+  <h:outputStylesheet library="font-awesome" name="css/font-awesome.min.css" />
+  <h:outputStylesheet library="css" name="plugins/iCheck/custom.css" />
+  <h:outputStylesheet library="css"
+   name="plugins/steps/jquery.steps.css" />
+  <h:outputStylesheet library="css" name="animate.css" />
+  <h:outputStylesheet library="css" name="style.css" />
+  <style>
+p {
+ text-align: center;
+ font-size: 60px;
+ margin-top: 0px;
+}
+</style>
+  <script
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc3QZUxX-9y1OPFwmeUyMUQnMXRmt0h2c"></script>
+
+
+ </ui:define>
+<ui:define name="pageContent">
+<body>
+<div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+ <ul class="list-group">
+      <h:form enctype="multipart/form-data">
+<center>
+
+<h:panelGrid columns="2">
+<li class="list-group-item"><label>Nom de l'Entreprise</label>
+        <h:inputText value="#{entrepriseBean.nom}"
+         styleClass="form-control required" /></li>
+<li class="list-group-item"><label>Site Web de l'Entreprise</label>
+        <h:inputText value="#{entrepriseBean.siteWeb}"
+         styleClass="form-control required" /></li>
+         <li class="list-group-item"><label>Nom du Responsable RH de la société</label>
+        <h:inputText value="#{entrepriseBean.nomRH}"
+         styleClass="form-control required" /></li>
+<li class="list-group-item"><label>Prenom du Responsable RH de la société</label>
+        <h:inputText value="#{entrepriseBean.prenomRH}"
+         styleClass="form-control required" /></li>
+         <li class="list-group-item"><label>Username du Responsable RH de la société</label>
+        <h:inputText value="#{entrepriseBean.usernameRH}"
+         styleClass="form-control required" /></li>
+         <li class="list-group-item"><label>Mdp du Responsable RH de la société</label>
+        <h:inputText value="#{entrepriseBean.passwordRH}"
+         styleClass="form-control required" /></li>
+         <li class="list-group-item"><label>Mail du Responsable RH de la société</label>
+        <h:inputText value="#{entrepriseBean.mailRH}"
+         styleClass="form-control required" /></li>
+         <li class="list-group-item"><label>Numéro de téléphone du Responsable RH de la société</label>
+        <h:inputText value="#{entrepriseBean.numRH}"
+         styleClass="form-control required" /></li>
+         <li class="list-group-item"><label>Addresse de la société</label>
+        <h:inputText value="#{entrepriseBean.address}"
+         styleClass="form-control required" /></li>
+<li class="list-group-item"><label>Logo de l'Entreprise</label>
+		
+	    <h:inputFile value="#{entrepriseBean.part}"></h:inputFile></li>
+        <div align="center">
+        <a href="http://localhost:18080/pfe-web/template/ListerEntre.jsf"> <h:commandButton value="Add"
+          action="#{entrepriseBean.ajoutEntreprise()}" href="http://localhost:18080/pfe-web/template/ListerEntre.jsf"
+          styleClass="btn academy-btn btn-sm" /></a>
+        </div>
+       
+
+</h:panelGrid>
+
+</center>
+</h:form>
+</ul>
+</body>
+</ui:define>
+</ui:composition>

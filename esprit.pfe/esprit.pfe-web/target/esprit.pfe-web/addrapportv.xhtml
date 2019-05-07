@@ -1,0 +1,114 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	 template="/templateEtudiant.xhtml"
+      
+                 xmlns:p="http://primefaces.org/ui">
+<ui:define name="pageCSS">
+			<style >
+	
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}</style>
+
+
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<h:outputStylesheet library="font-awesome" name="css/font-awesome.css" />
+		<h:outputStylesheet library="css" name="plugins/iCheck/custom.css" />
+		<h:outputStylesheet library="css"
+			name="plugins/steps/jquery.steps.css" />
+		<h:outputStylesheet library="css" name="animate.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+			<h:outputStylesheet library="css" name="style2.css" />
+
+	</ui:define>
+	<ui:define name="titleHere"> 
+	<div id="aaa" class="aaa" style=" background-image:url(#{request.contextPath}/resources/img/backk.jpg);
+	">	<br/>	<br/>
+	<div class="row wrapper border-bottom white-bg page-heading">
+			<div class="col-sm-4">
+				<h2> Add new Report </h2>
+				<ol class="breadcrumb">
+					<li><a href="templateAdmin.xhtml">home</a></li>
+					<li class="active">
+					<a href="showSite.xhtml">
+					<strong>Report management</strong></a></li>
+					
+					
+				</ol>
+				<div class="topright">
+    <img alt="image" 
+        src="resources/img/images (1).jpg" style="height:70px;
+  width: 70px;"/>
+    </div>
+			</div>
+		
+		</div>
+
+<div class="signupSection">
+  <div class="info">
+  
+   
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+     <div class="pull-right">
+    <img alt="image" 
+        src="resources/img/ESPA.png" style="height:250px;
+  width: 300px;"/>
+    </div>
+  </div>
+ 
+	<br/><br/><br/><br/>
+	<div class="bg-img">
+	<h:form enctype="multipart/form-data" >
+	<center>
+		<h:panelGrid columns="2">
+	<h:outputText value="Report: "  style="font-weight:bolder ;Padding: 50px;" />
+		<h:inputFile value="#{rapportBean.part}"></h:inputFile>
+		
+
+
+
+		<br></br>
+	
+		
+		
+		<h:commandButton  action="#{rapportBean.addPlateforme()}" value=" Add new report" 
+	 onclick="if(!confirm('are you sure you want to add this report ?')){ return; };"
+		 style="border: 1px solid rgba(10, 180, 180, 1);
+			  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  margin-top: 50px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+			  "
+	 >
+		 
+		</h:commandButton>
+		
+		
+		
+		
+		
+		</h:panelGrid>
+			</center>
+			</h:form>	
+			<br/>	<br/>	<br/>	<br/>	<br/>	<br/>	<br/>
+	</div>
+</div>
+
+ </div>
+      
+      </ui:define>	
+     </ui:composition>
+
+

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui"
+
+ >
+
+<h:head>
+ <h:outputStylesheet library="css" name="bootstrap.min.css" />
+ <h:outputStylesheet library="font-awesome" name="css/font-awesome.css" />
+ <h:outputStylesheet library="css" name="plugins/toastr/toastr.min.css" />
+ <h:outputStylesheet library="js"
+  name="plugins/gritter/jquery.gritter.css" />
+ <h:outputStylesheet library="css" name="animate.css" />
+ <h:outputStylesheet library="css" name="style.css" />
+ <ui:insert name="pageCSS"></ui:insert>
+ <script type="text/javascript" src="chatroom.js"></script>
+ <script type="text/javascript">
+
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	console.log(document.getElementById('loginPanel'));
+	proxy.initiate({
+		loginPanel: document.getElementById('loginPanel'),
+		msgPanel: document.getElementById('msgPanel'),
+		txtMsg: document.getElementById('txtMsg'),
+		txtLogin: document.getElementById('txtLogin'),
+		msgContainer: document.getElementById('msgContainer')
+	});
+});
+
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+	
+  var data = google.visualization.arrayToDataTable([
+  ['Project', 'State'],
+  ['Progress', (document.getElementById('progressproject').value/document.getElementById('allproject').value)*100],
+  ['Interrupted', (document.getElementById('interruptedproject').value/document.getElementById('allproject').value)*100],
+  ['Finished', (document.getElementById('finishedproject').value/document.getElementById('allproject').value)*100],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'All projects statistics ','width':300, 'height':150};
+
+ 
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+<script>
+window.onload = function(){
+	var countDownDate = new Date(document.getElementById("datefinproject").value +' 00:00:00').getTime();
+	// Update the count down every 1 second
+	var x = setInterval(function() {
+
+	    // Get todays date and time
+	    var now = new Date().getTime();
+	    
+	    // Find the distance between now an the count down date
+	    var distance = countDownDate - now;
+	    
+	    // Time calculations for days, hours, minutes and seconds
+	    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	    
+	    // Output the result in an element with id="demo"
+	    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+	    + minutes + "m " + seconds + "s ";
+	    
+	    // If the count down is over, write some text 
+	    
+	}, 1000);
+}
+
+</script>
+</h:head>
+
+<h:body>
+ <div id="wrapper">
+  <nav class="navbar-default navbar-static-side" role="navigation">
+   <div class="sidebar-collapse">
+    <ul class="nav" id="side-menu">
+     <li class="nav-header">
+      <div class="dropdown profile-element">
+       <span> <img alt="image" class="img-circle"
+        src="resources/img/ariij (1).jpg" />
+       </span> <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+        <span class="clear"> <span class="block m-t-xs"> <strong
+          class="font-bold">Arij</strong>
+        </span> <span class="text-muted text-xs block">Admin<b
+          class="caret"></b></span>
+       </span>
+       </a>
+       <ul class="dropdown-menu animated fadeInRight m-t-xs">
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="mailbox.html">Mailbox</a></li>
+        <li class="divider"></li>
+        <li><a href="login.html">Logout</a></li>
+       </ul>
+      </div>
+      <div class="logo-element">IN+</div>
+     </li>
+
+     
+
+     
+
+     <!-- 						comment here -->
+     <li><h:outputLink value="showAllEmployee.xhtml">
+       <i class="fa fa-group"></i>
+       <span class="nav-label">Employee Management </span>
+       <span class="fa arrow"></span>
+      </h:outputLink>
+      <ul class="nav nav-second-level">
+       <li
+      >
+      <h:outputLink class="fa fa-user-plus"
+      value="addnewEmployee.xhtml?faces-redirect=true">Add new employee</h:outputLink></li>
+       <li
+       ><h:outputLink
+        class="fa fa-file-image-o"
+         value="showAllEmployee.xhtml?faces-redirect=true">view all employees</h:outputLink></li>
+
+       
+      </ul></li>
+     <!-- comment there -->
+
+ <li><h:outputLink value="showStudent.xhtml">
+       <i class="fa fa-graduation-cap"></i>
+       <span class="nav-label">Student Management </span>
+       <span class="fa arrow"></span>
+      </h:outputLink>
+      <ul class="nav nav-second-level">
+       <li
+      >
+      <h:outputLink class="fa fa-user-plus"
+      value="addstudent.xhtml?faces-redirect=true">Add new Student</h:outputLink></li>
+       <li
+       ><h:outputLink
+        class="fa fa-file-image-o"
+         value="showStudent.xhtml?faces-redirect=true">view all students</h:outputLink></li>
+
+       
+      </ul></li>
+
+
+<li><h:outputLink value="showSite.xhtml">
+       <i class="fa fa-bank"></i>
+       <span class="nav-label">University Sites </span>
+       <span class="fa arrow"></span>
+      </h:outputLink>
+      <ul class="nav nav-second-level">
+       <li
+      >
+      <h:outputLink class="fa fa-plus"
+      value="AddSite.xhtml?faces-redirect=true">Add new Site</h:outputLink></li>
+       <li
+       ><h:outputLink
+        class="fa fa-file-image-o"
+         value="showSite.xhtml?faces-redirect=true">view all sites</h:outputLink></li>
+
+       
+      </ul></li>
+
+
+
+
+<li><h:outputLink value="showSite.xhtml">
+       <i class="fa fa-bank"></i>
+       <span class="nav-label">University Departments </span>
+       <span class="fa arrow"></span>
+      </h:outputLink>
+      <ul class="nav nav-second-level">
+       <li
+      >
+      <h:outputLink class="fa fa-plus"
+      value="addDepartmentxhtml.xhtml?faces-redirect=true">Add new Department</h:outputLink></li>
+       <li
+       ><h:outputLink
+        class="fa fa-file-image-o"
+         value="showDepartment.xhtml?faces-redirect=true">view all Departments</h:outputLink></li>
+
+       
+      </ul></li>
+
+<li><h:outputLink value="Paypal.xhtml">
+       <i class="fa fa-paypal"></i>
+       <span class="nav-label">PayPal Payment </span>
+       <span class="fa arrow"></span>
+      </h:outputLink>
+     </li>
+
+
+     </ul>
+     
+   </div>
+  </nav>
+
+  <div id="page-wrapper" class="gray-bg dashbard-1">
+   <div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation"
+     style="margin-bottom: 0">
+     <div class="navbar-header">
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary "
+       href="#"><i class="fa fa-bars"></i> </a>
+      <form role="search" class="navbar-form-custom"
+       action="http://webapplayers.com/inspinia_admin-v2.0/search_results.html">
+       <div class="form-group">
+        <input type="text" placeholder="Search for something..."
+         class="form-control" name="top-search" id="top-search" />
+       </div>
+      </form>
+     </div>
+     <ul class="nav navbar-top-links navbar-right">
+      <li><span class="m-r-sm text-muted welcome-message">Welcome
+        to INSPINIA+ Admin Theme.</span></li>
+      <li class="dropdown"><a class="dropdown-toggle count-info"
+       data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
+        <span class="label label-warning">16</span>
+      </a>
+       <ul class="dropdown-menu dropdown-messages">
+        <li>
+         <div class="dropdown-messages-box">
+          <a href="profile.html" class="pull-left"> <img alt="image"
+           class="img-circle" src="resources/img/a7.jpg" /></a>
+          <div class="media-body">
+           <small class="pull-right">46h ago</small> <strong>Mike
+            Loreipsum</strong> started following <strong>Monica Smith</strong>. <br />
+           <small class="text-muted">3 days ago at 7:58 pm -
+            10.06.2014</small>
+          </div>
+         </div>
+        </li>
+        <li class="divider"></li>
+        <li>
+         <div class="dropdown-messages-box">
+          <a href="profile.html" class="pull-left"> <img alt="image"
+           class="img-circle" src="resources/img/a4.jpg" /></a>
+          <div class="media-body ">
+           <small class="pull-right text-navy">5h ago</small> <strong>Chris
+            Johnatan Overtunk</strong> started following <strong>Monica
+            Smith</strong>. <br /> <small class="text-muted">Yesterday
+            1:21 pm - 11.06.2014</small>
+          </div>
+         </div>
+        </li>
+        <li class="divider"></li>
+        <li>
+         <div class="dropdown-messages-box">
+          <a href="profile.html" class="pull-left"> <img alt="image"
+           class="img-circle" src="resources/img/profile.jpg" /></a>
+          <div class="media-body ">
+           <small class="pull-right">23h ago</small> <strong>Monica
+            Smith</strong> love <strong>Kim Smith</strong>. <br /> <small
+            class="text-muted">2 days ago at 2:30 am -
+            11.06.2014</small>
+          </div>
+         </div>
+        </li>
+        <li class="divider"></li>
+        <li>
+         <div class="text-center link-block">
+          <a href="mailbox.html"> <i class="fa fa-envelope"></i> <strong>Read
+            All Messages</strong>
+          </a>
+         </div>
+        </li>
+       </ul></li>
+      <li class="dropdown"><a class="dropdown-toggle count-info"
+       data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
+        class="label label-primary">8</span>
+      </a>
+       <ul class="dropdown-menu dropdown-alerts">
+        <li><a href="mailbox.html">
+          <div>
+           <i class="fa fa-envelope fa-fw"></i> You have 16 messages <span
+            class="pull-right text-muted small">4 minutes ago</span>
+          </div>
+        </a></li>
+        <li class="divider"></li>
+        <li><a href="profile.html">
+          <div>
+           <i class="fa fa-twitter fa-fw"></i> 3 New Followers <span
+            class="pull-right text-muted small">12 minutes ago</span>
+          </div>
+        </a></li>
+        <li class="divider"></li>
+        <li><a href="grid_options.html">
+          <div>
+           <i class="fa fa-upload fa-fw"></i> Server Rebooted <span
+            class="pull-right text-muted small">4 minutes ago</span>
+          </div>
+        </a></li>
+        <li class="divider"></li>
+        <li>
+         <div class="text-center link-block">
+          <a href="notifications.html"> <strong>See All
+            Alerts</strong> <i class="fa fa-angle-right"></i>
+          </a>
+         </div>
+        </li>
+       </ul></li>
+
+
+      <li><h:form>
+        <h:commandLink>
+         <i class="fa fa-sign-out"></i>
+								Log out
+						</h:commandLink>
+       </h:form></li>
+      <li><a class="right-sidebar-toggle"><i
+        class="fa fa-tasks"></i> </a></li>
+     </ul>
+
+    </nav>
+   </div>
+   <ui:insert name="titleHere">
+   
+   <div class="row  border-bottom white-bg dashboard-header">
+
+     
+      <img src="resources/img/aff22.jpg" alt="Avatar" class="image"  />
+      <div class="col-sm-3">
+      <h2>Welcome arij</h2>
+      <small><i class="fa fa-tim"></i> 
+</small>
+          <h:form>
+      <ui:repeat  var="plateforme" value="#{plateformBean.showPlateforme()}">
+      <tr>
+      <td>
+				<h:graphicImage library="images" name="#{plateforme.image}" width="120" height="100"></h:graphicImage>
+				
+			</td>
+			</tr>
+			 <tr>
+      <td>
+				
+				<h:outputLabel value="#{plateforme.university}" />
+			</td>
+			</tr>
+			
+			</ui:repeat>
+			</h:form>
+       
+      <small><i class="fa fa-tim"></i> </small>
+      <ul class="list-group clear-list m-t">
+      <ui:repeat var="project" value="#{projectBean.projects}">
+      
+       <li class="list-group-item fist-item"><span
+        class="pull-right"> ppp </span> <span
+        class="label label-success">1</span>ppp</li>
+        </ui:repeat>
+      </ul>
+     
+
+
+    
+						
+    </div>
+    <div class="row">
+     <div class="col-lg-12">
+      <div class="wrapper wrapper-content">
+       <div class="row">
+       
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+           <h5>Social Media talks ESPA!!</h5>
+           <div class="ibox-tools">
+            <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+            </a> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+           
+            </a>
+           
+            <a class="close-link"> <i class="fa fa-times"></i>
+            </a>
+           </div>
+          </div>
+          <div class="ibox-content no-padding">
+           <ul class="list-group">
+            <li class="list-group-item">
+             <p>
+              <a class="fa fa-twitter fa-fw" href="www.twitter.com">@Esprit</a><p>ESPRIT Adopted ESPA... Good news for 5th year students!!</p>
+             </p> <small class="block text-muted"><i
+              class="fa fa-clock-o"></i> 1 minuts ago</small>
+            </li>
+            <li class="list-group-item">
+             <p>
+              <a class="fa fa-envelope fa-fw" href="#">@StockMan</a><p>Amazingly Helpful!! Check How much users joined in the last 20days</p>
+             </p>
+             <div class="text-center m">
+              <span id="sparkline8"></span>
+             </div> <small class="block text-muted"><i
+              class="fa fa-clock-o"></i> 2 hours ago</small>
+            </li>
+            <li class="list-group-item">
+             <p>
+              <a class="fa fa-twitter fa-fw" href="#">@AlanMarry</a><p> This application is MAGICAL!!</p>
+             </p> <small class="block text-muted"><i
+              class="fa fa-clock-o"></i> 3 hours ago</small>
+            </li>
+            <li class="list-group-item ">
+             <p>
+              <a class="fa fa-envelope fa-fw" href="#">@JonathanFebrick</a> <p>Thank you @Harvard for adopting ESPA!</p>
+             </p> <small class="block text-muted"><i
+              class="fa fa-clock-o"></i> 3 hours ago</small>
+            </li>
+            <li class="list-group-item">
+             <p>
+              <a class="fa fa-twitter fa-fw" href="#">@AlanMarry</a><p>Big UP ESPA... (Y)</p>
+             </p> <small class="block text-muted"><i
+              class="fa fa-clock-o"></i> 1 Day ago</small>
+            </li>
+            <li class="list-group-item">
+             <p>
+              <a class="fa fa-twitter fa-fw" href="#">@KevinSmith</a><p>Never been so gratfull to an app..</p>
+             </p> <small class="block text-muted"><i
+              class="fa fa-clock-o"></i> 2 Days ago</small>
+            </li>
+           </ul>
+          
+         </div>
+        </div>
+        
+        
+        
+        
+        
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+           <h5>Project Poster</h5>
+           <span class="label label-primary">Comercial</span>
+           <div class="ibox-tools">
+            <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+            </a> 
+            
+            <a class="close-link"> <i class="fa fa-times"></i>
+            </a>
+           </div>
+          </div>
+          <div class="ibox-content">
+           <div>
+    
+      <div class="container" style="text-align: center;">
+  <img src="resources/img/Affiche.jpg" alt="Avatar" class="image"  style=" width:60%;  margin-left: auto;
+  margin-right: auto;
+      padding:2px;
+      border:3px solid #021a40;
+      "/>
+  <div class="middle">
+    
+  </div>
+</div>
+        
+           </div>
+          </div>
+        </div>
+         
+        
+        
+        
+          </div></div>
+     </div>
+    </div>
+    </div>
+    
+   </ui:insert>
+
+ <div class="footer">
+    <div class="pull-right">
+    
+<h:panelGrid columns="2">
+  <h:graphicImage value="/resources/img/59562483_1231145297045805_1683492580051910656_n.jpg" height="70px" />
+ </h:panelGrid>
+
+
+    </div>
+    <div>
+     <strong>Copyright</strong> ITM Company 2018-2019
+    </div>
+   </div>
+  
+  </div>
+  </div>
+  
+ <!-- Mainly scripts -->
+ <ui:insert name="pageJS">
+  <h:outputScript library="js" name="jquery-2.1.1.js"></h:outputScript>
+  <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+  <h:outputScript library="js"
+   name="plugins/metisMenu/jquery.metisMenu.js"></h:outputScript>
+  <h:outputScript library="js"
+   name="plugins/slimscroll/jquery.slimscroll.min.js"></h:outputScript>
+
+  <!-- Flot -->
+  <h:outputScript library="js" name="plugins/flot/jquery.flot.js"></h:outputScript>
+  <h:outputScript library="js"
+   name="plugins/flot/jquery.flot.tooltip.min.js"></h:outputScript>
+  <h:outputScript library="js" name="plugins/flot/jquery.flot.spline.js"></h:outputScript>
+  <h:outputScript library="js" name="plugins/flot/jquery.flot.resize.js"></h:outputScript>
+  <h:outputScript library="js" name="plugins/flot/jquery.flot.pie.js"></h:outputScript>
+
+  <!-- Peity -->
+  <h:outputScript library="js" name="plugins/peity/jquery.peity.min.js"></h:outputScript>
+  <h:outputScript library="js" name="demo/peity-demo.js"></h:outputScript>
+
+  <!-- Custom and plugin javascript -->
+  <h:outputScript library="js" name="inspinia.js"></h:outputScript>
+  <h:outputScript library="js" name="plugins/pace/pace.min.js"></h:outputScript>
+
+  <!-- jQuery UI -->
+  <h:outputScript library="js" name="plugins/jquery-ui/jquery-ui.min.js"></h:outputScript>
+
+  <!-- GITTER -->
+  <h:outputScript library="js"
+   name="plugins/gritter/jquery.gritter.min.js"></h:outputScript>
+
+  <!-- Sparkline -->
+  <h:outputScript library="js"
+   name="plugins/sparkline/jquery.sparkline.min.js"></h:outputScript>
+
+  <!-- Sparkline demo data  -->
+  <h:outputScript library="js" name="demo/sparkline-demo.js"></h:outputScript>
+
+  <!-- ChartJS-->
+  <h:outputScript library="js" name="plugins/chartJs/Chart.min.js"></h:outputScript>
+
+  <!-- Toastr -->
+  <h:outputScript library="js" name="plugins/toastr/toastr.min.js"></h:outputScript>
+
+
+  <h:outputScript>
+    $(document).ready(function(){
+    var lineData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July","Aout","September","October","November","December"],
+        datasets: [
+            
+            {
+                label: "Example dataset",
+                fillColor: "rgba(26,179,148,0.5)",
+                strokeColor: "rgba(26,179,148,0.7)",
+                pointColor: "rgba(26,179,148,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(26,179,148,1)",
+                data: [$("#Jan").val(),$("#Feb").val(), $("#Mar").val(), $("#Apr").val(), $("#May").val(), $("#Jun").val(), $("#Jul").val(),$("#Aou").val(),$("#Sep").val(),$("#Oct").val(),$("#Nov").val(),$("#Dec").val()]
+            }
+        ]
+    };
+
+    var lineOptions = {
+        scaleShowGridLines: true,
+        scaleGridLineColor: "rgba(0,0,0,.05)",
+        scaleGridLineWidth: 1,
+        bezierCurve: true,
+        bezierCurveTension: 0.4,
+        pointDot: true,
+        pointDotRadius: 4,
+        pointDotStrokeWidth: 1,
+        pointHitDetectionRadius: 20,
+        datasetStroke: true,
+        datasetStrokeWidth: 2,
+        datasetFill: true,
+        responsive: true,
+    };
+
+
+    var ctx = document.getElementById("lineChart").getContext("2d");
+    var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+    
+    });
+    </h:outputScript>
+  <h:outputScript>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-4625583-2', 'webapplayers.com');
+        ga('send', 'pageview');
+
+        </h:outputScript>
+ </ui:insert>
+</h:body>
+</html>

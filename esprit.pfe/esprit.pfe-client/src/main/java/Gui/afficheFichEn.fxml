@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.afficheFichEnController">
+   <children>
+      <TableView fx:id="tb" layoutX="14.0" layoutY="31.0" prefHeight="297.0" prefWidth="593.0" stylesheets="@../../resources/css/Metro-UI.css">
+        <columns>
+          <TableColumn fx:id="tit" prefWidth="113.0" text="Title" />
+          <TableColumn fx:id="desc" prefWidth="170.0" text="Description" />
+            <TableColumn fx:id="fonc" prefWidth="139.0" text="Foncionnality" />
+            <TableColumn fx:id="prob" prefWidth="170.0" text="Problematic" />
+        </columns>
+      </TableView>
+      <JFXRadioButton fx:id="sup" layoutX="627.0" layoutY="40.0" text="Supervised">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup></JFXRadioButton>
+      <JFXRadioButton fx:id="rep" layoutX="627.0" layoutY="95.0" styleClass="right-button" stylesheets="@../../resources/css/Metro-UI.css" text="Reported" toggleGroup="$group" />
+      <AnchorPane layoutX="55.0" layoutY="410.0" prefHeight="200.0" prefWidth="752.0" style="-fx-background-color: #299bb4; -fx-background-radius: 30;">
+         <children>
+            <AnchorPane layoutY="171.0" prefHeight="29.0" prefWidth="752.0" style="-fx-background-color: #299bb4;" />
+            <JFXTextField fx:id="titre" focusColor="WHITE" labelFloat="true" layoutX="36.0" layoutY="54.0" promptText="Titre" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="de" focusColor="WHITE" labelFloat="true" layoutX="195.0" layoutY="54.0" promptText="Description" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="prob1" focusColor="WHITE" labelFloat="true" layoutX="358.0" layoutY="54.0" promptText="Problèmatique" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="ent" focusColor="WHITE" labelFloat="true" layoutX="36.0" layoutY="112.0" promptText="Entreprise" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="fonc1" focusColor="WHITE" labelFloat="true" layoutX="524.0" layoutY="54.0" promptText="Fonctionnalité" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="pays" focusColor="WHITE" labelFloat="true" layoutX="194.0" layoutY="112.0" promptText="Pays" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="ecole" focusColor="WHITE" labelFloat="true" layoutX="358.0" layoutY="112.0" promptText="Ecole" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="cat" layoutX="524.0" layoutY="112.0" prefHeight="25.0" prefWidth="135.0" promptText="Category" styleClass="combo-box-base" stylesheets="@../../resources/css/Metro-UI.css" unFocusColor="WHITE" />
+            <JFXTextField fx:id="etat" editable="false" focusColor="WHITE" layoutX="241.0" layoutY="153.0" promptText="State" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <JFXDatePicker fx:id="ann" defaultColor="#2068db" layoutX="36.0" layoutY="153.0" promptText="Annee" style="-fx-background-color: #ffffff; -fx-focus-traversable: #ffffff;" />
+            <Label layoutX="276.0" layoutY="14.0" prefHeight="17.0" prefWidth="217.0" text="Details of the PFE plug" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Rezdone" size="20.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="mot" focusColor="WHITE" labelFloat="true" layoutX="406.0" layoutY="153.0" promptText="Mot Clé" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+            <Label layoutX="694.0" layoutY="23.0" prefHeight="29.0" prefWidth="44.0" text="/20" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="mark" focusColor="WHITE" layoutX="605.0" layoutY="1.0" prefHeight="44.0" prefWidth="91.0" unFocusColor="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="sub" layoutX="592.0" layoutY="359.0" prefHeight="29.0" prefWidth="182.0" styleClass="btn" text="Submit">
+         <stylesheets>
+            <URL value="@../../resources/css/Metro-UI.css" />
+            <URL value="@../../resources/css/Metro-UI.css" />
+         </stylesheets>
+      </JFXButton>
+      <ImageView fitHeight="100.0" fitWidth="109.0" layoutX="83.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/css/icons8-document-48.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="pd" layoutX="684.0" layoutY="206.0" prefHeight="29.0" prefWidth="182.0" styleClass="btn" text="Extract Certificate">
+         <stylesheets>
+            <URL value="@../../resources/css/Metro-UI.css" />
+            <URL value="@../../resources/css/Metro-UI.css" />
+         </stylesheets>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	
+	
+	
+	>
+	<h:form enctype="multipart/form-data">
+		<h:panelGrid columns="2">
+		
+		<h:outputText value="Year" />
+		<h:inputText value="#{plateformBean.year}" />
+		
+			<h:outputText value="Image" />
+			
+	    <h:inputFile value="#{plateformBean.part}"></h:inputFile>
+		<br></br>
+	
+		
+	
+		
+		<h:commandButton  action="#{plateformBean.addPlateforme()}" value=" Add" 
+	 onclick="if(!confirm('are you sure you want to add your platform ?')){ return; };">
+		 
+		</h:commandButton>
+		
+		</h:panelGrid>
+		
+			</h:form>		
+	
+</ui:composition>

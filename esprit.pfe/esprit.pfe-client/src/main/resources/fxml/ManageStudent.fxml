@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.pi.pfe.client.controller.ManageStudentAdminController">
+   <children>
+      <AnchorPane fx:id="addstudentpane" layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="504.0" prefWidth="768.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Text layoutX="262.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add student">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="firstname" labelFloat="true" layoutX="28.0" layoutY="82.0" promptText="First name" />
+            <JFXTextField fx:id="lastname" labelFloat="true" layoutX="28.0" layoutY="138.0" promptText="Last name" />
+            <JFXTextField fx:id="username" layoutX="28.0" layoutY="203.0" promptText="User name" />
+            <JFXTextField fx:id="email" labelFloat="true" layoutX="28.0" layoutY="263.0" promptText="Email" />
+            <JFXComboBox fx:id="option" labelFloat="true" layoutX="28.0" layoutY="320.0" prefHeight="26.0" prefWidth="135.0" promptText="Option" />
+            <JFXComboBox fx:id="classe" labelFloat="true" layoutX="28.0" layoutY="377.0" prefHeight="26.0" prefWidth="136.0" promptText="Class" />
+            <Label layoutX="302.0" layoutY="99.0" prefHeight="18.0" prefWidth="93.0" text="Financial credits" />
+            <Label layoutX="302.0" layoutY="155.0" prefHeight="18.0" prefWidth="94.0" text="Pedagogic credits" />
+            <JFXRadioButton fx:id="fcyes" layoutX="420.0" layoutY="99.0" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="fc" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="fcno" layoutX="481.0" layoutY="99.0" selected="true" text="No" toggleGroup="$fc" />
+            <JFXRadioButton fx:id="pcyes" layoutX="419.0" layoutY="155.0" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="pc" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="pcno" layoutX="481.0" layoutY="155.0" selected="true" text="No" toggleGroup="$pc" />
+            <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="250.0" onAction="#add" prefHeight="50.0" prefWidth="115.0" ripplerFill="#010101" style="-fx-background-color: #46D08F;" text="+ADD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="backstudent" onAction="#backstudent" prefHeight="40.0" prefWidth="82.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/undo-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="managestudentpane" opacity="0.0" prefHeight="504.0" prefWidth="768.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Separator layoutY="12.0" prefHeight="178.0" prefWidth="776.0" />
+            <TableView fx:id="tablemanagestudent" layoutX="19.0" layoutY="198.0" prefHeight="200.0" prefWidth="729.0">
+              <columns>
+                <TableColumn fx:id="namestudent" prefWidth="75.0" text="First name" />
+                <TableColumn fx:id="prenamestudent" prefWidth="75.0" text="Last name" />
+                  <TableColumn fx:id="emailstudent" prefWidth="121.60003662109375" text="Email" />
+                  <TableColumn fx:id="optionstudent" prefWidth="75.0" text="Option" />
+                  <TableColumn fx:id="classstudent" prefWidth="75.0" text="Class" />
+                  <TableColumn fx:id="fnc" prefWidth="108.0" text="Fianancial credits" />
+                  <TableColumn fx:id="pdc" prefWidth="109.60003662109375" text="Pedagogic credits" />
+                  <TableColumn fx:id="autor" prefWidth="82.39999999999998" text="Autorisation" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="42.0" prefWidth="768.0" />
+            <JFXTextField fx:id="searchstudent" labelFloat="true" layoutX="27.0" layoutY="120.0" prefHeight="26.0" prefWidth="166.0" promptText="Search " />
+            <JFXButton fx:id="searchstudentbutt" layoutX="208.0" layoutY="120.0" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: #12050B;" text="Search" textFill="#8d305b" />
+            <JFXButton fx:id="addstudentbutt" layoutX="466.0" layoutY="123.0" onAction="#addstudentbutt" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: #8d305b;" text="+  Add new student" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="deletestudent" layoutX="320.0" layoutY="428.0" onAction="#deletestudent" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4883A5;" text="Delete student" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="edit3" layoutX="524.0" layoutY="427.0" onAction="#edit3" prefHeight="32.0" prefWidth="124.0" style="-fx-background-color: #8D305B#8D305B;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </JFXButton>
+            <HBox prefHeight="100.0" prefWidth="776.0" />
+            <Text layoutX="249.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Student" wrappingWidth="290.93677139282227">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addstudentpane1" layoutX="9.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="768.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Text layoutX="262.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit student">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="firstname1" labelFloat="true" layoutX="28.0" layoutY="82.0" promptText="First name" />
+            <JFXTextField fx:id="lastname1" labelFloat="true" layoutX="28.0" layoutY="138.0" promptText="Last name" />
+            <JFXTextField fx:id="username1" layoutX="28.0" layoutY="203.0" promptText="User name" />
+            <JFXTextField fx:id="email1" labelFloat="true" layoutX="28.0" layoutY="263.0" promptText="Email" />
+            <JFXComboBox fx:id="option1" labelFloat="true" layoutX="28.0" layoutY="320.0" prefHeight="26.0" prefWidth="135.0" promptText="Option" />
+            <JFXComboBox fx:id="classe1" labelFloat="true" layoutX="28.0" layoutY="377.0" prefHeight="26.0" prefWidth="136.0" promptText="Class" />
+            <Label layoutX="302.0" layoutY="99.0" prefHeight="18.0" prefWidth="93.0" text="Financial credits" />
+            <Label layoutX="302.0" layoutY="155.0" prefHeight="18.0" prefWidth="94.0" text="Pedagogic credits" />
+            <JFXRadioButton fx:id="fcyes1" layoutX="420.0" layoutY="99.0" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="fc1" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="fcno1" layoutX="481.0" layoutY="99.0" selected="true" text="No" toggleGroup="$fc1" />
+            <JFXRadioButton fx:id="pcyes1" layoutX="419.0" layoutY="155.0" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="pc1" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="pcno1" layoutX="481.0" layoutY="155.0" selected="true" text="No" toggleGroup="$pc1" />
+            <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="250.0" onAction="#add" prefHeight="50.0" prefWidth="115.0" ripplerFill="#010101" style="-fx-background-color: #46D08F;" text="EDIT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="backstudent1" onAction="#backstudent" prefHeight="40.0" prefWidth="82.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/undo-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

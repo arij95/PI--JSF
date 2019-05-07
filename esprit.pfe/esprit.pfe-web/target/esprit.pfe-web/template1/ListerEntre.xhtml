@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml"
+>
+
+ <ui:define name="pageContent">
+<body>
+<div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+ <h:form>
+ <li class="list-group-item"><label>Recherche</label>
+        <h:inputText value=""
+         styleClass="form-control required" /></li>
+<div class="top-popular-courses-area section-padding-100-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                        <span>The Best</span>
+                        <h3>Top Popular Courses</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+  		<ui:repeat var="ente" value="#{entrepriseBean.entres}">
+ 
+            
+               
+              
+ 			<div class="col-12 col-lg-6">
+
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
+                        <div class="popular-course-content">
+                           <h5><h:outputText value="#{ente.nom}" /></h5>
+                           <span><h:outputText value="#{ente.address}" /></span>
+                           
+                            <div class="course-ratings">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            
+                            <p><h:outputText value="Name of the responsible human resource: #{ente.nomRH} #{ente.prenomRH}"/></p>
+                            <p><h:outputText value="E-Mail of the responsible human resource: #{ente.mailRH}"/></p>
+                            <a href="#{ente.siteWeb}" class="btn academy-btn btn-sm">Postule</a>
+                        </div>
+                        
+                        <div class="popular-course-thumb bg-img"><h:graphicImage url="/ressources/images/#{ente.image}" width="300" height="100"></h:graphicImage></div>
+                    </div>
+                
+                </div>
+  			
+ 		
+			 </ui:repeat>
+            
+                </div>
+              
+                </div></div>
+ 
+ 
+ 
+ </h:form>
+ </body>
+ </ui:define>
+ </ui:composition>
+ 

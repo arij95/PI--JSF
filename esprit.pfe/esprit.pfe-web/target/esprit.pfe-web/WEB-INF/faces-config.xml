@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <managed-bean>
+  <managed-bean-name>plateformBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.PlateformBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>EmployeeManagement</managed-bean-name>
+  <managed-bean-class>EmployeeManagement</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>employeeManagementBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.EmployeeManagementBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>EditorView</managed-bean-name>
+  <managed-bean-class>EditorView</managed-bean-class>
+  <managed-bean-scope>none</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>RapportValidationBean</managed-bean-name>
+  <managed-bean-class>RapportValidationBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>rapportBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.RapportBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>studentBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.StudentBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>siteBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.SiteBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>departmentBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.DepartmenttBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>DepartmentBean</managed-bean-name>
+  <managed-bean-class>esprit.pfe.esprit.pfe.presentation.mbeans.DepartmentBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <application/>
+</faces-config>

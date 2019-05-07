@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+ 
+   
+     <title>Academy - Education Course Template</title>
+
+  
+    <h:outputStylesheet library="css" name="style.css" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/resources/img/favicon.ico" />
+   
+ <link rel="ieg" type="image"
+		href="#{request.contextPath}/resources/images" />
+   
+    <link rel="stylesheet" href="#{request.contextPath}/resources/style.css"/>
+
+
+
+</h:head>
+<h:body>
+	<div id="container">
+
+		<div id="header">
+			
+			<div id="identity">
+				<ui:include src="/template1/header.xhtml" />
+			</div>
+		</div>
+
+		
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		
+		<br/>
+		
+		
+		
+		<div class="main">
+			<div id="content">
+				<ui:insert name="pageContent" />
+			</div>
+		</div>
+
+		<hr></hr>
+
+		<div id="footer">
+			<ui:include src="/template1/footer.xhtml" />
+		</div>
+
+	</div>
+	 <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+</h:body>
+</html>

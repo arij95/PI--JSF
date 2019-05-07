@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.annulController">
+   <children>
+      <JFXTextField fx:id="ms" labelFloat="true" layoutX="94.0" layoutY="95.0" prefHeight="40.0" prefWidth="404.0" promptText="Cancellation Message">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="can" layoutX="219.0" layoutY="209.0" prefHeight="40.0" prefWidth="154.0" styleClass="btn" stylesheets="@../../resources/css/Metro-UI.css" text="Cancel internship">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

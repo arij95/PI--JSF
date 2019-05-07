@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DemandeConController">
+   <children>
+      <JFXDatePicker fx:id="SDate" layoutX="42.0" layoutY="53.0" promptText="Start Date" />
+      <JFXDatePicker fx:id="Edate" layoutX="42.0" layoutY="116.0" promptText="End Date" />
+      <JFXTextField fx:id="company" editable="false" layoutX="42.0" layoutY="186.0" prefHeight="25.0" prefWidth="163.0" promptText="Company" />
+      <JFXTextField fx:id="web" layoutX="42.0" layoutY="257.0" prefHeight="25.0" prefWidth="171.0" promptText="Web Site" />
+      <JFXTextField fx:id="ad" layoutX="42.0" layoutY="332.0" prefHeight="25.0" prefWidth="171.0" promptText="Adress" />
+      <JFXTextField fx:id="coun" editable="false" layoutX="347.0" layoutY="53.0" prefHeight="25.0" prefWidth="171.0" promptText="Country" />
+      <JFXTextField fx:id="name" layoutX="347.0" layoutY="116.0" prefHeight="25.0" prefWidth="171.0" promptText="Responsible First Name" />
+      <JFXTextField fx:id="pre" layoutX="347.0" layoutY="186.0" prefHeight="25.0" prefWidth="171.0" promptText="Responsible Last Name" />
+      <JFXTextField fx:id="Rmail" layoutX="347.0" layoutY="257.0" prefHeight="25.0" prefWidth="171.0" promptText="Responsible Mail" />
+      <JFXTextField fx:id="Smail" layoutX="347.0" layoutY="332.0" prefHeight="25.0" prefWidth="171.0" promptText="Company Supervisor Mail" />
+      <JFXTextField fx:id="tel" layoutX="42.0" layoutY="405.0" prefHeight="25.0" prefWidth="171.0" promptText="Phone Number" />
+      <JFXButton fx:id="req" layoutX="415.0" layoutY="394.0" prefHeight="36.0" prefWidth="111.0" styleClass="btn" stylesheets="@../../resources/css/Metro-UI.css" text="Request" />
+      <Text fill="#48c2c1" layoutX="213.0" layoutY="40.0" lineSpacing="3.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Create convention" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

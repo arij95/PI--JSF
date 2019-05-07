@@ -1,0 +1,122 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	 template="/templateAdmin.xhtml"
+      
+                 xmlns:p="http://primefaces.org/ui">
+<ui:define name="pageCSS">
+				<style >
+	
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}</style>
+			
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<h:outputStylesheet library="font-awesome" name="css/font-awesome.css" />
+		<h:outputStylesheet library="css" name="plugins/iCheck/custom.css" />
+		<h:outputStylesheet library="css"
+			name="plugins/steps/jquery.steps.css" />
+		<h:outputStylesheet library="css" name="animate.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+			<h:outputStylesheet library="css" name="style2.css" />
+
+	</ui:define>
+	<ui:define name="titleHere"> 
+	<div id="aaa" class="aaa" style=" background-image:url(#{request.contextPath}/resources/img/backk.jpg);
+	">	<br/>	<br/>
+	<div class="row wrapper border-bottom white-bg page-heading">
+			<div class="col-sm-4">
+				<h2> Add new Employee </h2>
+				<ol class="breadcrumb">
+					<li><a href="templateAdmin.xhtml">home</a></li>
+					<li class="active">
+					<a href="showAllEmployee.xhtml">
+					<strong>Employee management</strong></a></li>
+					
+				</ol>
+				<div class="topright">
+    <img alt="image" 
+        src="resources/img/business-01-512.png" style="height:80px;
+  width: 80px;"/>
+    </div>
+			</div>
+		
+		</div>
+
+<div class="signupSection">
+  <div class="info">
+  
+   
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+     <div class="pull-right">
+    <img alt="image" 
+        src="resources/img/ESPA.png" style="height:250px;
+  width: 300px;"/>
+    </div>
+  </div>
+ 
+	<br/><br/><br/><br/>
+	<div class="bg-img">
+	<h:form enctype="multipart/form-data" >
+	<center>
+		<h:panelGrid columns="2">
+	
+		<h:outputText value="First name: " style="font-weight:bold ;Padding: 50px;"/>
+		<h:inputText value="#{employeeManagementBean.nomEmploye}" style="margin-bottom:25px;" />
+			
+			<h:outputText value="Last name: " style="font-weight:bold;Padding: 50px;"/>
+	    <h:inputText value="#{employeeManagementBean.prenomEmploye}" style="margin-bottom:25px;"/>
+	    		
+	    <h:outputText value="User name: " style="font-weight:bold;Padding: 50px;" />
+	    <h:inputText value="#{employeeManagementBean.userNameEmploye}" style="margin-bottom:25px;"/>
+	    	
+	     <h:outputText value="Email: " style="font-weight:bold;Padding: 50px;"/>
+	    <h:inputText value="#{employeeManagementBean.emailEmploye}" style="margin-bottom:25px;"/>
+	    	
+	    <h:outputText value="Post: " style="font-weight:bold;Padding: 50px; " />
+	     <h:selectOneMenu  id="console" value="#{employeeManagementBean.employeRole}" style="font-weight:bold;width:200px;">
+	     	<f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Internship director" itemValue="Internship director" /> 
+            <f:selectItem itemLabel="department head" itemValue="department head" />
+            <f:selectItem itemLabel="Internship Framer" itemValue="Internship Framer" />
+            <f:selectItem itemLabel="professor" itemValue="professor" />
+             <f:selectItem itemLabel="protractor" itemValue="protractor" />
+       
+        </h:selectOneMenu>
+        
+		<br></br>
+	
+		
+		
+		<h:commandButton  action="#{employeeManagementBean.addEmploye()}" value=" Add new Employee" 
+	 style="border: 1px solid rgba(10, 180, 180, 1);
+  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: .4s;
+  "
+	 onclick="if(!confirm('are you sure you want to add this employee ?')){ return; };"
+	 >
+		 
+		</h:commandButton>
+		
+		</h:panelGrid>
+			</center>
+			</h:form>	
+			<br/>	<br/>	<br/>	<br/>	<br/>	<br/>	<br/>
+	</div>
+</div>
+
+ </div>
+      
+      </ui:define>	
+     </ui:composition>
